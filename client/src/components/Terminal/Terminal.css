@@ -1,0 +1,13 @@
+.terminal.window .window-body {
+  background-color: #1e1e1e;
+  padding: 0;
+  overflow: hidden;
+  /* The flex-grow is inherited from the .window-body style in FileManager.css,
+     but we override padding and background for the terminal. */
+}
+
+/* The xterm library creates its own viewport, this ensures it's sized correctly */
+.terminal .xterm {
+  height: 100% !important;
+  width: 100% !important;
+}
