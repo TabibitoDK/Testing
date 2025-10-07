@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# macOS-style Web Interface
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React-based web interface designed to mimic the macOS desktop experience. It's intended to be run on an Ubuntu server and accessed through a web browser.
+
+## Prerequisites
+
+Before you begin, ensure you have Node.js and npm installed on your Ubuntu server. If you don't have them, you can install them using the following commands:
+
+```bash
+sudo apt update
+sudo apt install nodejs npm
+```
+
+Verify the installation by checking the versions:
+```bash
+node -v
+npm -v
+```
+
+## Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>/client
+    ```
+
+2.  **Install dependencies:**
+    From the `client` directory, install the necessary npm packages:
+    ```bash
+    npm install
+    ```
 
 ## Available Scripts
 
-In the project directory, you can run:
+### Running the Development Server
 
-### `npm start`
+To run the app in development mode, use the following command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This will start the development server and you can view the application by navigating to `http://<your-server-ip>:3000` in your web browser. The page will automatically reload if you make changes to the code.
 
-### `npm test`
+### Building for Production
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To build the application for production, run:
 
-### `npm run build`
+```bash
+npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This will create a `build` directory with a production-ready version of the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Serving the Production Build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To serve the production build, you can use a simple static server like `serve`.
 
-### `npm run eject`
+1.  **Install `serve` globally:**
+    ```bash
+    sudo npm install -g serve
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.  **Serve the `build` directory:**
+    ```bash
+    serve -s build
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This will serve the `build` directory on a local port (usually 3000). You can then configure a reverse proxy with a web server like Nginx or Apache to make it accessible on port 80 or 443.
