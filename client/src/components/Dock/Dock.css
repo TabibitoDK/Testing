@@ -1,0 +1,63 @@
+.dock {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.dock-item {
+  margin: 0 5px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.dock-item:hover {
+  transform: scale(1.2) translateY(-10px);
+}
+
+.dock-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.dock-item .tooltip {
+  position: absolute;
+  bottom: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.dock-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dock-item.open::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 2px #fff;
+}
