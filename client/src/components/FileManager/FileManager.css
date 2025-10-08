@@ -2,8 +2,12 @@
   position: absolute;
   top: 100px;
   left: 100px;
-  width: 800px;
-  height: 500px;
+  display: inline-block;
+}
+
+.window-content {
+  width: 100%;
+  height: 100%;
   background-color: #fdfdfd;
   border: 1px solid #c9c9c9;
   border-radius: 10px;

@@ -9,6 +9,7 @@ import './Terminal.css';
 const Terminal = ({ onClose, onMinimize }) => {
   const terminalRef = useRef(null);
   const fitAddon = useRef(new FitAddon());
+  const nodeRef = useRef(null);
 
   useEffect(() => {
     const term = new XTerm({
@@ -55,27 +56,29 @@ const Terminal = ({ onClose, onMinimize }) => {
   };
 
   return (
-    <Draggable handle=".window-header">
-      <Resizable
-        defaultSize={{
-          width: 600,
-          height: 400,
-        }}
-        minWidth={300}
-        minHeight={200}
-        className="terminal window"
-        onResizeStop={onResizeStop}
-      >
-        <div className="window-header">
-          <div className="buttons">
-            <span className="close" onClick={onClose}></span>
-            <span className="minimize" onClick={onMinimize}></span>
-            <span className="maximize"></span>
+    <Draggable handle=".window-header" nodeRef={nodeRef}>
+      <div ref={nodeRef} className="window">
+        <Resizable
+          defaultSize={{
+            width: 600,
+            height: 400,
+          }}
+          minWidth={300}
+          minHeight={200}
+          className="window-content terminal"
+          onResizeStop={onResizeStop}
+        >
+          <div className="window-header">
+            <div className="buttons">
+              <span className="close" onClick={onClose}></span>
+              <span className="minimize" onClick={onMinimize}></span>
+              <span className="maximize"></span>
+            </div>
+            <div className="title">Terminal</div>
           </div>
-          <div className="title">Terminal</div>
-        </div>
-        <div className="window-body" ref={terminalRef}></div>
-      </Resizable>
+          <div className="window-body" ref={terminalRef}></div>
+        </Resizable>
+      </div>
     </Draggable>
   );
 };

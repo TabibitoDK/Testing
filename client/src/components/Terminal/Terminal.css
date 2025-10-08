@@ -1,4 +1,4 @@
-.terminal.window .window-body {
+.window-content.terminal .window-body {
   background-color: #1e1e1e;
   padding: 0;
   overflow: hidden;
@@ -7,7 +7,7 @@
 }
 
 /* The xterm library creates its own viewport, this ensures it's sized correctly */
-.terminal .xterm {
+.window-content.terminal .xterm {
   height: 100% !important;
   width: 100% !important;
 }

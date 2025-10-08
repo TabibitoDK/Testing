@@ -1,6 +1,6 @@
 # macOS-style Web Interface
 
-This project is a React-based web interface designed to mimic the macOS desktop experience. It's intended to be run on an Ubuntu server and accessed through a web browser.
+This project is a Vite + React-based web interface designed to mimic the macOS desktop experience. It's intended to be run on an Ubuntu server and accessed through a web browser.
 
 ## Prerequisites
 
@@ -38,10 +38,10 @@ npm -v
 To run the app in development mode, use the following command:
 
 ```bash
-npm start
+npm run dev
 ```
 
-This will start the development server and you can view the application by navigating to `http://<your-server-ip>:3000` in your web browser. The page will automatically reload if you make changes to the code.
+This will start the Vite development server and you can view the application by navigating to `http://<your-server-ip>:5173` in your web browser. The page will automatically reload if you make changes to the code.
 
 ### Building for Production
 
@@ -51,7 +51,15 @@ To build the application for production, run:
 npm run build
 ```
 
-This will create a `build` directory with a production-ready version of the app.
+This will create a `dist` directory with a production-ready version of the app.
+
+### Previewing the Production Build
+
+To preview the built assets locally before deploying, run:
+
+```bash
+npm run preview
+```
 
 ### Serving the Production Build
 
@@ -62,9 +70,17 @@ To serve the production build, you can use a simple static server like `serve`.
     sudo npm install -g serve
     ```
 
-2.  **Serve the `build` directory:**
+2.  **Serve the `dist` directory:**
     ```bash
-    serve -s build
+    serve -s dist
     ```
 
-This will serve the `build` directory on a local port (usually 3000). You can then configure a reverse proxy with a web server like Nginx or Apache to make it accessible on port 80 or 443.
+This will serve the `dist` directory on a local port (usually 3000). You can then configure a reverse proxy with a web server like Nginx or Apache to make it accessible on port 80 or 443.
+
+### Running Tests
+
+Unit tests are powered by Vitest and Testing Library:
+
+```bash
+npm test
+```
