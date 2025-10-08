@@ -57,7 +57,7 @@ const Terminal = ({ onClose, onMinimize }) => {
 
   return (
     <Draggable handle=".window-header" nodeRef={nodeRef}>
-      <div ref={nodeRef} className="window">
+      <div ref={nodeRef} className="window terminal-window">
         <Resizable
           defaultSize={{
             width: 600,

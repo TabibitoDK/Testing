@@ -1,47 +1,71 @@
 .dock {
   position: absolute;
-  bottom: 10px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 26px;
+  background: rgba(244, 246, 248, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(28px) saturate(160%);
+  box-shadow: 0 18px 38px rgba(6, 12, 28, 0.25);
+  z-index: 10;
+  overflow: visible;
+}
+
+.dock::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .dock-item {
-  margin: 0 5px;
-  cursor: pointer;
   position: relative;
-  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 6px;
+  cursor: pointer;
+  transition: transform 0.22s ease, filter 0.22s ease;
+  z-index: 1;
 }
 
 .dock-item:hover {
-  transform: scale(1.2) translateY(-10px);
+  transform: translateY(-12px) scale(1.2);
+  filter: drop-shadow(0 14px 18px rgba(6, 12, 28, 0.25));
 }
 
 .dock-item img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  transition: transform 0.22s ease;
 }
 
 .dock-item .tooltip {
   position: absolute;
-  bottom: 65px;
+  bottom: 78px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 6px 14px;
+  border-radius: 14px;
+  background: rgba(32, 32, 36, 0.9);
+  color: #f2f2f7;
+  font-size: 12px;
+  letter-spacing: 0.2px;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition: opacity 0.18s ease, visibility 0.18s;
+  pointer-events: none;
 }
 
 .dock-item:hover .tooltip {
@@ -52,12 +76,12 @@
 .dock-item.open::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 2px #fff;
+  width: 18px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
 }

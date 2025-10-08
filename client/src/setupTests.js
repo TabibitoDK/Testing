@@ -3,3 +3,27 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/vitest';
+import { vi } from 'vitest';
+
+vi.mock('xterm', () => {
+  class MockTerminal {
+    loadAddon() {}
+    open() {}
+    writeln() {}
+    onKey() {
+      return { dispose() {} };
+    }
+    write() {}
+    dispose() {}
+  }
+
+  return { Terminal: MockTerminal };
+});
+
+vi.mock('xterm-addon-fit', () => {
+  class MockFitAddon {
+    fit() {}
+  }
+
+  return { FitAddon: MockFitAddon };
+});

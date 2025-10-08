@@ -3,16 +3,16 @@ import './App.css';
 import Desktop from './components/Desktop/Desktop';
 import Dock from './components/Dock/Dock';
 import MenuBar from './components/MenuBar/MenuBar';
-import FileManager from './components/FileManager/FileManager';
+import Finder from './components/Finder/Finder';
 import Terminal from './components/Terminal/Terminal';
 
 // Import app icons
-import fileManagerIcon from './assets/icons/file-manager.png';
-import terminalIcon from './assets/icons/terminal.png';
+import finderIcon from './assets/icons/Finder.png';
+import terminalIcon from './assets/icons/Terminal.png';
 
 const App = () => {
   const [apps, setApps] = useState([
-    { id: 'fileManager', name: 'File Manager', icon: fileManagerIcon, isOpen: false, isMinimized: false },
+    { id: 'finder', name: 'Finder', icon: finderIcon, isOpen: false, isMinimized: false },
     { id: 'terminal', name: 'Terminal', icon: terminalIcon, isOpen: false, isMinimized: false },
   ]);
 
@@ -44,8 +44,8 @@ const App = () => {
         {apps.map((app) => {
           if (app.isOpen && !app.isMinimized) {
             switch (app.id) {
-              case 'fileManager':
-                return <FileManager key={app.id} onClose={() => handleCloseApp(app.id)} onMinimize={() => handleMinimizeApp(app.id)} />;
+              case 'finder':
+                return <Finder key={app.id} onClose={() => handleCloseApp(app.id)} onMinimize={() => handleMinimizeApp(app.id)} />;
               case 'terminal':
                 return <Terminal key={app.id} onClose={() => handleCloseApp(app.id)} onMinimize={() => handleMinimizeApp(app.id)} />;
               default:

@@ -3,13 +3,13 @@ import App from './App';
 
 test('renders dock apps in the desktop', () => {
   render(<App />);
-  expect(screen.getByText('File Manager')).toBeInTheDocument();
-  expect(screen.getByText('Terminal')).toBeInTheDocument();
+  expect(screen.getByAltText('Finder')).toBeInTheDocument();
+  expect(screen.getByAltText('Terminal')).toBeInTheDocument();
 });
 
 test('opens file manager when dock icon is clicked', () => {
   render(<App />);
-  const fileManagerIcon = screen.getByAltText('File Manager');
-  fireEvent.click(fileManagerIcon);
+  const finderIcon = screen.getByAltText('Finder');
+  fireEvent.click(finderIcon);
   expect(screen.getByText('Downloads')).toBeInTheDocument();
 });
